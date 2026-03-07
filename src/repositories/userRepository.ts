@@ -33,6 +33,13 @@ export default class UserRepository extends BaseRepository<User> {
     return await this.findOne({ email }, options);
   }
 
+  async findByUsername(
+    username: string,
+    options: any = {},
+  ): Promise<User | null> {
+    return await this.findOne({ username }, options);
+  }
+
   async findByEmailAndValidate(
     email: string,
     candidatePassword: string,
